@@ -1,6 +1,6 @@
-# IziConnect – FULL Kit (Backend + Frontend Tailwind)
+# IziConnect NEXT (Backend + Frontend Tailwind)
 
-Incluye toda la solución: API FastAPI con datos de ejemplo y Frontend React + Vite + Tailwind alineado a Figma.
+Incluye toda la solución: API FastAPI y Frontend React + Vite + Tailwind
 
 ## Backend
 ```bash
@@ -31,9 +31,3 @@ Abre: http://localhost:5173
 - `GET /stats/cartera` → Insight rápido + Vistos recientemente.
 - `GET /prospects/search?q=...&region=...&limit=...` → Radar Digital con similarity_score (TF‑IDF + semilla).
 - `GET /alerts` → Kanban de alertas.
-
-## Datos semilla
-- `clients.csv` (45) con `segment` (incluye promotor), `last_purchase_days`, `avg_ticket`, `risk_level`, `last_visit_date`, `avg_tx_growth`, `nps_last`, `digital_maturity`, `tags`.
-- `transactions.csv` (3 meses por cliente).
-- `prospects.csv` (20) con `handle`, `has_qr`, `has_link`, `has_card`, `delivery`, `rating`, `reviews`, `followers`, `similarity_seed`.
-- `alerts.csv` (12) para Kanban.

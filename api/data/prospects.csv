@@ -1,0 +1,21 @@
+name,site,channel,category,region,handle,has_qr,has_link,has_card,reviews,rating,followers,delivery,similarity_seed
+Bistro Aurora,https://example1.pe,maps,tech,Piura,@bistroaurora,False,True,False,163,4.6,804,True,0.67
+EcoMarket,https://example2.pe,web,health,Arequipa,@ecomarket,True,True,False,154,4.7,7668,False,0.8
+Clínica Vida,https://example3.pe,facebook,health,Lima,@clínicavida,False,True,False,301,4.3,9648,False,0.75
+Casa Vega,https://example4.pe,facebook,home,Arequipa,@casavega,True,False,True,468,4.2,3261,False,0.86
+Salud Integral Norte,https://example5.pe,web,health,Piura,@saludintegralnorte,False,True,False,417,3.8,18974,False,0.85
+Mercado Lince,https://example6.pe,instagram,tech,Piura,@mercadolince,True,True,True,398,4.1,9722,True,0.63
+Casa Vega Norte,https://example7.pe,web,tech,Lima,@casaveganorte,True,False,True,343,4.6,14352,True,0.77
+TechShop Sur,https://example8.pe,facebook,tech,Lima,@techshopsur,False,True,False,387,3.7,10782,True,0.56
+Panadería Sol,https://example9.pe,instagram,restaurants,Piura,@panaderíasol,True,False,True,374,3.9,17590,False,0.84
+Servicios Max,https://example10.pe,maps,health,Arequipa,@serviciosmax,False,True,True,262,4.2,2874,True,0.78
+Farmacia Azul,https://example11.pe,web,home,Piura,@farmaciaazul,False,True,False,436,3.7,15725,True,0.79
+Mayorista UNO,https://example12.pe,facebook,restaurants,Lima,@mayoristauno,False,False,True,135,4.5,12805,True,0.61
+Moda Chic,https://example13.pe,instagram,home,Arequipa,@modachic,True,False,False,463,3.7,10607,True,0.59
+Plaza Limón,https://example14.pe,instagram,retail,Lima,@plazalimón,False,True,True,256,4.7,1691,False,0.59
+Café Andino,https://example15.pe,instagram,health,Lima,@caféandino,True,True,True,377,4.2,17166,True,0.72
+Lencería Luna,https://example16.pe,facebook,home,Lima,@lenceríaluna,False,True,True,492,4.6,16211,False,0.73
+Zapatería Orion,https://example17.pe,maps,health,Piura,@zapateríaorion,True,True,False,451,3.9,2128,True,0.91
+Rest. El Puerto,https://example18.pe,maps,tech,Piura,@rest.elpuerto,False,True,True,483,3.9,856,False,0.89
+Green Market,https://example19.pe,maps,retail,Piura,@greenmarket,False,True,True,222,3.8,11044,True,0.65
+Casa Vega Centro,https://example20.pe,instagram,tech,Arequipa,@casavegacentro,True,True,True,87,4.3,6342,True,0.63

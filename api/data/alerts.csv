@@ -1,0 +1,13 @@
+id,client_id,type,reason,priority,status,last_seen
+A001,C005,recuperacion,caida_frecuencia,media,progreso,2025-07-29
+A002,C016,nps,caida_frecuencia,baja,resuelto,2025-07-26
+A003,C001,recuperacion,nps_bajo,alta,resuelto,2025-07-29
+A004,C015,recuperacion,caida_frecuencia,baja,progreso,2025-07-23
+A005,C006,oportunidad,inactividad,media,progreso,2025-07-29
+A006,C018,oportunidad,nps_bajo,baja,resuelto,2025-07-29
+A007,C012,riesgo,disminucion_ticket,alta,resuelto,2025-07-24
+A008,C015,riesgo,nps_bajo,alta,progreso,2025-07-23
+A009,C008,oportunidad,alto_potencial,alta,progreso,2025-07-30
+A010,C007,recuperacion,inactividad,baja,progreso,2025-07-26
+A011,C011,nps,alto_potencial,baja,nuevo,2025-07-26
+A012,C007,recuperacion,nps_bajo,baja,nuevo,2025-07-25

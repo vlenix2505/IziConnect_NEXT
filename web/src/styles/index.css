@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --izi-red:#E30613; --izi-orange:#F58220; }
+.gradient-izi { background-image: linear-gradient(90deg, var(--izi-red), var(--izi-orange)); }
+.card { @apply bg-izi-panel/90 border border-slate-800 rounded-2xl p-5 shadow-card; }
+.knum { @apply text-3xl font-extrabold; }
+.badge { @apply inline-block border border-slate-700 rounded-full px-2.5 py-0.5 text-xs text-slate-300; }
+.btn { @apply inline-flex items-center gap-2 rounded-xl px-3 py-2 bg-sky-500 text-white hover:bg-sky-400 transition; }
+.btn-ghost { @apply inline-flex items-center gap-2 rounded-xl px-3 py-2 border border-slate-800 hover:bg-slate-900 transition; }
+.pill-up { @apply inline-block rounded-full border border-emerald-900 bg-emerald-900/30 text-emerald-200 text-xs px-2 py-0.5; }
+.pill-down { @apply inline-block rounded-full border border-rose-900 bg-rose-900/30 text-rose-200 text-xs px-2 py-0.5; }
+.table { @apply w-full text-sm; }
+.table th { @apply text-left text-slate-400 font-medium pb-2; }
+.table td { @apply py-2 border-t border-slate-800; }
+input, select { @apply bg-izi-panel/60 border-slate-800 text-slate-100 rounded-xl; }

@@ -1,17 +1,29 @@
 
 from fastapi import FastAPI, Depends, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from sentence_transformers import SentenceTransformer
 from typing import Optional
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from datetime import datetime
 import os
+import numpy as np
 
 API_KEY = os.getenv("IZI_API_KEY","hackaizi-demo")
 DATA = os.path.join(os.path.dirname(__file__),"data")
 
 app = FastAPI(title="IziConnect FULL API", version="1.1")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+embedder = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+
+def embed_texts(texts):
+    """Genera embeddings para una lista de textos"""
+    return embedder.encode(texts, convert_to_numpy=True, normalize_embeddings=True)
+
+def cosine_sim(vecs, query_vec):
+    """Calcula similitud coseno"""
+    return np.dot(vecs, query_vec)
+
 
 clients = pd.read_csv(os.path.join(DATA,"clients.csv"), parse_dates=["last_visit_date"])
 tx = pd.read_csv(os.path.join(DATA,"transactions.csv"))
@@ -41,6 +53,22 @@ def tfidf_centroid(texts):
     X = vec.fit_transform(texts if texts else [""])
     return vec, X.mean(axis=0)
 
+""" @app.get("/prospects/search")
+def search_prospects(q: str="retail pagos link", region: Optional[str]="Lima", limit:int=10, _=Depends(require_key)):
+    base_texts = (clients["name"].fillna("")+" "+clients["industry"].fillna("")+" "+clients["tags"].fillna("")).tolist()
+    vec, centroid = tfidf_centroid(base_texts)
+    cand = prospects.copy()
+    if region:
+        cand = cand[cand["region"].str.lower()==region.lower()]
+    ptexts = (cand["name"].fillna("")+" "+cand["category"].fillna("")+" "+cand["handle"].fillna("")).tolist()
+    Xp = vec.transform(ptexts)
+    sims = (Xp @ centroid.T).A.ravel()
+    if "similarity_seed" in cand.columns:
+        sims = (sims*0.5 + cand["similarity_seed"].fillna(0).values*0.5)
+    cand["similarity_score"] = (sims/sims.max()*100).round(1) if sims.max()>0 else 0
+    return {"items": cand.sort_values("similarity_score",ascending=False).head(limit).to_dict(orient="records")}
+ """
+
 @app.get("/prospects/search")
 def search_prospects(q: str="retail pagos link", region: Optional[str]="Lima", limit:int=10, _=Depends(require_key)):
     base_texts = (clients["name"].fillna("")+" "+clients["industry"].fillna("")+" "+clients["tags"].fillna("")).tolist()
@@ -54,6 +82,12 @@ def search_prospects(q: str="retail pagos link", region: Optional[str]="Lima", l
     if "similarity_seed" in cand.columns:
         sims = (sims*0.5 + cand["similarity_seed"].fillna(0).values*0.5)
     cand["similarity_score"] = (sims/sims.max()*100).round(1) if sims.max()>0 else 0
+
+    # 🔹 Simulación de "scraping"
+    cand["reviews"] = cand["reviews"] + np.random.randint(-20, 50, size=len(cand))
+    cand["followers"] = cand["followers"] + np.random.randint(-100, 500, size=len(cand))
+    cand["rating"] = (cand["rating"] + np.random.uniform(-0.2, 0.2, size=len(cand))).clip(1,5).round(1)
+
     return {"items": cand.sort_values("similarity_score",ascending=False).head(limit).to_dict(orient="records")}
 
 @app.get("/stats/dashboard")

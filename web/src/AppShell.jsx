@@ -17,10 +17,10 @@ export default function AppShell(){
       <aside className={`bg-[#0b1324] border-b md:border-b-0 md:border-r border-slate-800 p-4 fixed md:static z-20 top-0 left-0 h-full w-64 md:w-auto transition-transform duration-200 ${open ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}>
         <div className="font-black text-xl mb-4 bg-clip-text text-transparent gradient-izi">IziConnect NEXT</div>
         <nav className="space-y-2">
-          <NavLink to="/" end className={({isActive})=> 'block px-3 py-2 rounded-xl '+(isActive?'bg-izi-panel text-white border border-slate-800':'text-slate-300 hover:bg-slate-900')}>Dashboard</NavLink>
-          <NavLink to="/cartera" className={({isActive})=> 'block px-3 py-2 rounded-xl '+(isActive?'bg-izi-panel text-white border border-slate-800':'text-slate-300 hover:bg-slate-900')}>Cartera</NavLink>
-          <NavLink to="/radar" className={({isActive})=> 'block px-3 py-2 rounded-xl '+(isActive?'bg-izi-panel text-white border border-slate-800':'text-slate-300 hover:bg-slate-900')}>Radar Digital</NavLink>
-          <NavLink to="/alertas" className={({isActive})=> 'block px-3 py-2 rounded-xl '+(isActive?'bg-izi-panel text-white border border-slate-800':'text-slate-300 hover:bg-slate-900')}>Alertas</NavLink>
+          <NavLink to="/" end className={({isActive})=> 'block px-3 py-2 rounded-xl '+(isActive?'bg-izi-panel text-white border border-slate-800':'text-slate-300 hover:bg-slate-900')} onClick={()=>setOpen(false)}>Dashboard</NavLink>
+          <NavLink to="/cartera" className={({isActive})=> 'block px-3 py-2 rounded-xl '+(isActive?'bg-izi-panel text-white border border-slate-800':'text-slate-300 hover:bg-slate-900')} onClick={()=>setOpen(false)}>Cartera</NavLink>
+          <NavLink to="/radar" className={({isActive})=> 'block px-3 py-2 rounded-xl '+(isActive?'bg-izi-panel text-white border border-slate-800':'text-slate-300 hover:bg-slate-900')} onClick={()=>setOpen(false)}>Radar Digital</NavLink>
+          <NavLink to="/alertas" className={({isActive})=> 'block px-3 py-2 rounded-xl '+(isActive?'bg-izi-panel text-white border border-slate-800':'text-slate-300 hover:bg-slate-900')} onClick={()=>setOpen(false)}>Alertas</NavLink>
         </nav>
         {/* Botón cerrar menú en móvil */}
         <button

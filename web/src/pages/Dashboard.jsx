@@ -55,7 +55,17 @@ export default function Dashboard(){
             {recs.map((r,idx)=>(
               <div key={idx} className="card p-3 flex items-center justify-between">
                 <div>{r.text}</div>
-                <button className="btn">{r.action}</button>
+                <button
+                  className={
+                    'btn ' +
+                    (r.action === 'Ver' ? 'bg-blue-600 hover:bg-blue-500' :
+                    r.action === 'Explorar' ? 'bg-emerald-600 hover:bg-emerald-500' :
+                    r.action === 'Actuar' ? 'bg-orange-600 hover:bg-orange-500' :
+                    'bg-sky-500 hover:bg-sky-400')
+                  }
+                >
+                  {r.action}
+                </button>
               </div>
             ))}
           </div>

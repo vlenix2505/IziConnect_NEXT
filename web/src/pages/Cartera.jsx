@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { apiGet } from '../api'
 
 export default function Cartera(){
@@ -7,6 +8,7 @@ export default function Cartera(){
   const [stats,setStats] = useState(null)
   const [segment,setSegment] = useState('')
   const [err,setErr] = useState(null)
+  const navigate = useNavigate()
 
   const load = ()=> {
     apiGet('/clients'+(segment?`?segment=${segment}`:''))
@@ -44,7 +46,12 @@ export default function Cartera(){
             <tbody>
               {items.map(c => (
                 <tr key={c.id}>
-                  <td className="whitespace-nowrap">{c.name}</td>
+                  <td
+                    className="whitespace-nowrap cursor-pointer hover:underline text-blue-600 hover:text-blue-800"
+                    onClick={() => navigate(`/perfil360/${c.id}`)}
+                  >
+                    {c.name}
+                  </td>
                   <td>{c.industry}</td>
                   <td><span className="badge">{c.segment}</span></td>
                   <td>{c.products}</td>

@@ -13,7 +13,7 @@ const router = createBrowserRouter([
   { path:'/', element:<AppShell/>, children:[
     { index:true, element:<Dashboard/> },
     { path:'cartera', element:<Cartera/> },
-    { path:'cartera/:id', element:<Perfil360/> },
+    { path:'perfil360/:id', element:<Perfil360/> },
     { path:'radar', element:<RadarDigital/> },
     { path:'alertas', element:<Alertas/> },
   ]}
